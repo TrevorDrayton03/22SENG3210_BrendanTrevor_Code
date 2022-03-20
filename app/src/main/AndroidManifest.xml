@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineVotingSystem">
         <activity
+            android:name=".Voter_Dashboard"
+            android:exported="true" />
+        <activity
             android:name=".View_Topic_Screen"
             android:exported="true" />
         <activity

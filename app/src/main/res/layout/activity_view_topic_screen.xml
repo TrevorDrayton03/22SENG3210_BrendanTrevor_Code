@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".View_Topic_Screen">
 
     <Button
         android:id="@+id/button16"
@@ -21,40 +22,47 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
         android:text="Topic Title"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="29dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="73dp"
         android:text="Button"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintStart_toStartOf="@+id/button20"
+        app:layout_constraintTop_toBottomOf="@+id/button16" />
 
     <Button
         android:id="@+id/button18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:text="Option 2"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="202dp" />
+        app:layout_constraintStart_toStartOf="@+id/button20"
+        app:layout_constraintTop_toBottomOf="@+id/button20" />
 
     <Button
         android:id="@+id/button20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
         android:text="Option 1"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/button17"
+        app:layout_constraintEnd_toStartOf="@+id/button16" />
 
     <Button
         android:id="@+id/button19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:text="Option 3"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="268dp" />
+        app:layout_constraintStart_toStartOf="@+id/button18"
+        app:layout_constraintTop_toBottomOf="@+id/button18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

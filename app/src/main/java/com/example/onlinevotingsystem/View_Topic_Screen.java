@@ -2,7 +2,9 @@ package com.example.onlinevotingsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 public class View_Topic_Screen extends AppCompatActivity {
 

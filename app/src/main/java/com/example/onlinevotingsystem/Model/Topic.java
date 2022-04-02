@@ -13,10 +13,11 @@ public class Topic {
 
     }
 
-    public Topic(String topicID, String description, Date date) {
+    public Topic(String topicID, String description, Date date, List<String> options) {
         this.topicID = topicID;
         this.description = description;
         this.date = date;
+        this.options = options;
     }
 
     public String getTopicID() { return topicID; }

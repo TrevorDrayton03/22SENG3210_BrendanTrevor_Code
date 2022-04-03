@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Topic {
     static ArrayList<Topic> topics = new ArrayList<>();
+    static ArrayList<Topic> topicOptions = new ArrayList<>();
     String title;
     int topicID;
     String description;
@@ -23,7 +24,17 @@ public class Topic {
         this.date = date;
         this.options = options;
     }
-
+    //TODO: write the comments for these functions
+    /**
+     *
+     * @param size
+     * @param title
+     * @param topicID
+     * @param description
+     * @param date
+     * @param options
+     * @return
+     */
     public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String description, Date date, List<String> options) {
         topics.add(new Topic( title,  topicID,  description,  date, options));
 
@@ -37,44 +48,29 @@ public class Topic {
         return topics;
     }
 
-    public String getTitle() { return title; }
+    /**
+     *
+     * @param size
+     * @return
+     */
+    public static ArrayList<Topic> createOptionsList(int size) {
 
-    public void setTitle(String title) {
-        this.title = title;
+        return topics;
     }
+
+    /* GET AND SET METHODS */
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
     public int getTopicID() { return topicID; }
+    public void setTopicID(int topicID) { this.topicID = topicID; }
 
-    public void setTopicID(int topicID) {
-        this.topicID = topicID;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public String getDescription() {
-        return description;
-    }
+    public Date getDate() {  return date; }
+    public void setDate(Date date) { this.date = date; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public List<String> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<String> options) {
-        this.options = options;
-    }
-
-/*    @Override
-    public String toString() {
-        return "topic" + topicID;
-    }*/
+    public List<String> getOptions() { return options; }
+    public void setOptions(List<String> options) { this.options = options; }
 }

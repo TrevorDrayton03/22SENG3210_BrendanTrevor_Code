@@ -1,7 +1,6 @@
 package com.example.onlinevotingsystem;
 
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +13,6 @@ import android.view.View;
 
 import com.example.onlinevotingsystem.Model.Topic;
 import com.example.onlinevotingsystem.Model.TopicAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -78,6 +76,11 @@ public class Voter_Dashboard extends AppCompatActivity {
      */
     public void openSettings(View view) {
         Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
+
+    public void openViewTopic(View view) {
+        Intent intent = new Intent(this, View_Topic_Screen.class);
         startActivity(intent);
     }
 }

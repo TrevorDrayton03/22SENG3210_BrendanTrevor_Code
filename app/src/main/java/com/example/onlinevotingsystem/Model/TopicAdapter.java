@@ -26,7 +26,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
     @Override
     public TopicAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new TopicAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.dynamic_topic_buttons, parent, false));
+        return new TopicAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_topic_buttons, parent, false));
     }
 
     @Override

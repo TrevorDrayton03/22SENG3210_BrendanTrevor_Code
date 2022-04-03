@@ -103,8 +103,9 @@ public class Create_Vote_Topic extends AppCompatActivity {
         Date date = topicEndDateTemp.parse(simpleDateInput);
 
         //Inputting our information into a topic object
-        Topic newTopic = new Topic(topicTitle, 1, "dummyDescription", date, optionsList);
+        // TODO: fix this options here
+/*        Topic newTopic = new Topic(topicTitle, 1, "dummyDescription", date, optionsList);
 
-        databaseReference.child(topicTitle).setValue(newTopic);
+        databaseReference.child(topicTitle).setValue(newTopic);*/
     }
 }

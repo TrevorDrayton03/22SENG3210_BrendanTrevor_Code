@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.onlinevotingsystem.Model.Topic;
 import com.example.onlinevotingsystem.Model.TopicAdapter;
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 public class Voter_Dashboard extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
+
+    // for storing topics
     ArrayList<Topic> topics = new ArrayList<>();
 
     @Override
@@ -55,11 +58,14 @@ public class Voter_Dashboard extends AppCompatActivity {
                     // Set layout manager to position the items
                     recyclerView.setLayoutManager(new LinearLayoutManager(Voter_Dashboard.this));
 
-/*                    Log.d("Main activity", "Title value is: " + topic.getTitle());
+                    // topic.setOptions(topic.toMap()) prints:
+                    // Options value is: {Option 1=0, Option 2=0, Option 3=0, Option 4=0, Option 5=0, Option 6=0}
+                    topic.setOptions(topic.toMap());
+                    Log.d("Main activity", "Title value is: " + topic.getTitle());
                     Log.d("Main activity", "Description value is: " + topic.getDescription());
                     Log.d("Main activity", "TopicID value is: " + topic.getTopicID());
                     Log.d("Main activity", "Date value is: " + topic.getDate());
-                    Log.d("Main activity", "Options value is: " + topic.getOptions());*/
+                    Log.d("Main activity", "Options value is: " + topic.getOptions());
                 }
             }
 
@@ -81,6 +87,8 @@ public class Voter_Dashboard extends AppCompatActivity {
 
     public void openViewTopic(View view) {
         Intent intent = new Intent(this, View_Topic_Screen.class);
+        // pass topic ID through this intent, must be typecast to int
+        intent.putExtra("TopicID", (int) view.getTag());
         startActivity(intent);
     }
 }

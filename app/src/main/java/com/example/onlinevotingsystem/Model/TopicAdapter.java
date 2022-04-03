@@ -1,12 +1,12 @@
 package com.example.onlinevotingsystem.Model;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlinevotingsystem.R;
@@ -30,13 +30,19 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TopicAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder( TopicAdapter.ViewHolder holder, int position) {
         // get the data model based on position
         Topic topic = dataModalArrayList.get(position);
 
         // set item views
         Button button = holder.dynamicButton;
+        // button name
         button.setText(topic.getTitle());
+        // storing the topic id with the button
+        // to help us identify which topic's options to show if the topic is clicked
+        button.setTag(topic.getTopicID());
+        Log.d("TopicAdapter", "Button tag value is: " + button.getTag());
+
     }
 
     @Override
@@ -50,9 +56,8 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
         // views of recycler items.
         private Button dynamicButton;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
-            // initializing the views of recycler views.
             dynamicButton = itemView.findViewById(R.id.dynamicButton);
         }
     }

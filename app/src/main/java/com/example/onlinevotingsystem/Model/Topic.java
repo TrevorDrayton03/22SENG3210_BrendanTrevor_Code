@@ -1,29 +1,46 @@
 package com.example.onlinevotingsystem.Model;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Topic {
     static ArrayList<Topic> topics = new ArrayList<>();
-    static ArrayList<Topic> topicOptions = new ArrayList<>();
+    public Map<String, Integer> options = new HashMap<>();
+
     String title;
     int topicID;
     String description;
     Date date;
-    List<String> options;
 
     public Topic() {
 
     }
 
-    public Topic(String title, int topicID, String description, Date date, List<String> options) {
+    public Topic(String title, int topicID, String description, Date date, Map<String, Integer> options) {
         this.title = title;
         this.topicID = topicID;
         this.description = description;
         this.date = date;
         this.options = options;
     }
+
+    @Exclude
+    public Map<String, Integer> toMap() {
+        HashMap<String, Integer> result = new HashMap<>();
+        result.put("Option 1", 0);
+        result.put("Option 2", 0);
+        result.put("Option 3", 0);
+        result.put("Option 4", 0);
+        result.put("Option 5", 0);
+        result.put("Option 6", 0);
+
+        return result;
+    }
+
     //TODO: write the comments for these functions
     /**
      *
@@ -35,7 +52,7 @@ public class Topic {
      * @param options
      * @return
      */
-    public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String description, Date date, List<String> options) {
+    public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String description, Date date, Map<String, Integer> options) {
         topics.add(new Topic( title,  topicID,  description,  date, options));
 
         // this ensures that the topics do not add up forever,
@@ -50,12 +67,14 @@ public class Topic {
 
     /**
      *
-     * @param size
+     * @param
      * @return
      */
-    public static ArrayList<Topic> createOptionsList(int size) {
+    public static Topic createOptionsList(String title, int topicID, String description, Date date, Map<String, Integer> options) {
 
-        return topics;
+        Topic topic = new Topic(title, topicID, description, date, options);
+
+        return topic;
     }
 
     /* GET AND SET METHODS */
@@ -71,6 +90,6 @@ public class Topic {
     public Date getDate() {  return date; }
     public void setDate(Date date) { this.date = date; }
 
-    public List<String> getOptions() { return options; }
-    public void setOptions(List<String> options) { this.options = options; }
+    public Map<String, Integer> getOptions() { return options; }
+    public void setOptions(Map<String, Integer> options) { this.options = options; }
 }

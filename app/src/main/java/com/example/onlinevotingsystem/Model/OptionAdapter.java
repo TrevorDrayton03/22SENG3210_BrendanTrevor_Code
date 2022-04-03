@@ -1,26 +1,31 @@
 package com.example.onlinevotingsystem.Model;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.onlinevotingsystem.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 
 public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder> {
 
-    // array list variable for storing topics, which we'll use to get the options
-    private ArrayList<Topic> dataModalArrayList = new ArrayList<>();
+    private Topic dataModalTopic = new Topic();
 
-    // pass in array list variable into constructor
-    public OptionAdapter(ArrayList<Topic> dataModalArrayList) {
-        this.dataModalArrayList = dataModalArrayList;
+    // pass in topic variable into OptionAdapter constructor
+    public OptionAdapter(Topic dataModalTopic) {
+        this.dataModalTopic = dataModalTopic;
     }
 
     @Override
@@ -30,36 +35,39 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OptionAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(OptionAdapter.ViewHolder holder, int position) {
         // get the data model based on position
-        Topic topic = dataModalArrayList.get(position);
+        Map<String, Integer> options = dataModalTopic.getOptions();
+        Set<String> keySet = dataModalTopic.getOptions().keySet();
+        // keys to ArrayList
+        ArrayList<String> listOfKeys = new ArrayList<String>(keySet);
+        // values to Collection
+        Collection<Integer> values = options.values();
+        // convert Collection to List so that we can get values by indexing with position
+        List listOfValues = new ArrayList(values);
 
-        // set item views
         Button button = holder.dynamicOptionButton;
-        //TODO: naming each option
-        button.setText(topic.getTitle());
+        // name button
+        button.setText(listOfKeys.get(position));
+        // give button tag the value to store for its key
+        button.setTag(listOfValues.get(position));
+        Log.d("OptionAdapter", "Button tag value is: " + button.getTag());
     }
 
     @Override
     public int getItemCount() {
-        // returning the size of array list.
-        return dataModalArrayList.size();
+        // returning the size of options
+        return dataModalTopic.getOptions().size();
     }
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     public class ViewHolder extends RecyclerView.ViewHolder {
-        // Your holder should contain a member variable
-        // for any view that will be set as you render a row
         public Button dynamicOptionButton;
-
-        // We also create a constructor that accepts the entire item row
+        // Create a constructor that accepts the entire item column
         // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
-            // Stores the itemView in a public final member variable that can be used
-            // to access the context from any ViewHolder instance.
             super(itemView);
-
-            dynamicOptionButton = (Button) itemView.findViewById(R.id.dynamicOptionButton);
+            dynamicOptionButton = itemView.findViewById(R.id.dynamicOptionButton);
         }
     }
 }

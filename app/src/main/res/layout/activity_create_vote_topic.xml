@@ -6,45 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".Create_Vote_Topic">
 
+
     <Button
         android:id="@+id/button15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:text="Settings"
-        app:layout_constraintBottom_toTopOf="@+id/statisticsTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/statisticsTitle" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/createVoteTopicTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="68dp"
+        android:layout_marginTop="28dp"
         android:text="Create Vote Topic"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button15" />
+
+    <EditText
+        android:id="@+id/votingOptionTextInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Voting Option"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toStartOf="@+id/addVotingOption"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addVotingOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addOption"
+        android:text="Add"
+        app:layout_constraintBaseline_toBaselineOf="@+id/votingOptionTextInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/votingOptionTextInput" />
+
+    <TextView
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Select Finish Date"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voteTopicTitleInput" />
 
     <EditText
         android:id="@+id/voteTopicTitleInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Vote Topic Title"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="104dp" />
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/createVoteTopicTitle"
+        app:layout_constraintTop_toBottomOf="@+id/createVoteTopicTitle" />
 
-    <EditText
-        android:id="@+id/editTextDate"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="233dp"
+        android:layout_marginBottom="104dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ListView
+            android:id="@+id/simpleListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/material_blue_grey_800"
+            android:dividerHeight="1dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/finishCreatingTopicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="163dp" />
+        android:layout_marginBottom="33dp"
+        android:text="Create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

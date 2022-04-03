@@ -1,10 +1,13 @@
 package com.example.onlinevotingsystem.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Topic {
-    String topicID;
+    static ArrayList<Topic> topics = new ArrayList<>();
+    String title;
+    int topicID;
     String description;
     Date date;
     List<String> options;
@@ -13,16 +16,36 @@ public class Topic {
 
     }
 
-    public Topic(String topicID, String description, Date date, List<String> options) {
+    public Topic(String title, int topicID, String description, Date date, List<String> options) {
+        this.title = title;
         this.topicID = topicID;
         this.description = description;
         this.date = date;
         this.options = options;
     }
 
-    public String getTopicID() { return topicID; }
+    public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String description, Date date, List<String> options) {
+        topics.add(new Topic( title,  topicID,  description,  date, options));
 
-    public void setTopicID(String topicID) {
+        // this ensures that the topics do not add up forever,
+        // that the buttons that are generated from the topics list are never higher in count than they're supposed to be
+        if(topics.size() > size) {
+            topics.clear();
+            createTopicsList( size,  title,  topicID,  description,  date,  options);
+        }
+
+        return topics;
+    }
+
+    public String getTitle() { return title; }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getTopicID() { return topicID; }
+
+    public void setTopicID(int topicID) {
         this.topicID = topicID;
     }
 
@@ -50,8 +73,8 @@ public class Topic {
         this.options = options;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "topic" + topicID;
-    }
+    }*/
 }

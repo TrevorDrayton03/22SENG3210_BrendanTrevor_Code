@@ -31,4 +31,9 @@ private Button createTopicButton;
         Intent intent = new Intent(this, Create_Vote_Topic.class);
         startActivity(intent);
     }
+
+    public void openSettings(View view) {
+        Intent intent = new Intent(this, Settings.class);
+        startActivity(intent);
+    }
 }

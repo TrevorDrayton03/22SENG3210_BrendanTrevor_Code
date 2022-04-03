@@ -16,7 +16,7 @@
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button3" />
+        app:layout_constraintEnd_toStartOf="@+id/managerDashboardSettingsButton" />
 
     <Button
         android:id="@+id/createTopicButton"
@@ -29,11 +29,12 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/managerDashboardSettingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:text="Settings"
+        android:onClick="openSettings"
         app:layout_constraintBottom_toTopOf="@+id/statisticsTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/statisticsTitle" />

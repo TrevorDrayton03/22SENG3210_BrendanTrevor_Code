@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 public class Topic {
-    String topicID;
+    public static int topicID = 0;
+    String title;
     String description;
     Date date;
     List<String> options;
@@ -13,18 +14,14 @@ public class Topic {
 
     }
 
-    public Topic(String topicID, String description, Date date, List<String> options) {
-        this.topicID = topicID;
+    public Topic(String title, String description, Date date, List<String> options) {
+        this.title = title;
         this.description = description;
         this.date = date;
         this.options = options;
     }
 
-    public String getTopicID() { return topicID; }
-
-    public void setTopicID(String topicID) {
-        this.topicID = topicID;
-    }
+    public int getTopicID() { return topicID; }
 
     public String getDescription() {
         return description;

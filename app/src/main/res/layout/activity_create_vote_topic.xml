@@ -12,9 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="28dp"
         android:text="Settings"
-        app:layout_constraintBottom_toTopOf="@+id/createVoteTopicTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,11 +20,10 @@
         android:id="@+id/createVoteTopicTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="28dp"
         android:text="Create Vote Topic"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/voteTopicTitleInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button15" />
@@ -36,37 +33,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="310dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="31dp"
+        android:layout_marginBottom="37dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Voting Option"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/addVotingOption"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/addVotingOption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:onClick="addOption"
         android:text="Add"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBaseline_toBaselineOf="@+id/votingOptionTextInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/votingOptionTextInput"
-        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+        app:layout_constraintStart_toEndOf="@+id/votingOptionTextInput" />
 
     <TextView
         android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="36dp"
         android:text="Select Finish Date"
         android:textAlignment="center"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/addVotingOption"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/voteTopicTitleInput" />
@@ -75,26 +68,24 @@
         android:id="@+id/voteTopicTitleInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Vote Topic Title"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/datePicker"
-        app:layout_constraintStart_toStartOf="@+id/datePicker"
+        app:layout_constraintStart_toStartOf="@+id/createVoteTopicTitle"
         app:layout_constraintTop_toBottomOf="@+id/createVoteTopicTitle" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="1dp"
+        android:layout_height="233dp"
+        android:layout_marginBottom="104dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/votingOptionTextInput">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ListView
             android:id="@+id/simpleListView"
@@ -103,5 +94,15 @@
             android:divider="@color/material_blue_grey_800"
             android:dividerHeight="1dp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/finishCreatingTopicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="33dp"
+        android:text="Create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

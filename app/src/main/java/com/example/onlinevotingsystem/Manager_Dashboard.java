@@ -6,7 +6,11 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Manager_Dashboard extends AppCompatActivity {
 private Button createTopicButton;
@@ -17,7 +21,6 @@ private Button createTopicButton;
         setContentView(R.layout.activity_manager_dashboard);
 
         createTopicButton = (Button) findViewById(R.id.createTopicButton);
-
         createTopicButton.setOnClickListener(new View.OnClickListener(){
           @Override
           public void onClick(View v){openCreateTopicScreen();}

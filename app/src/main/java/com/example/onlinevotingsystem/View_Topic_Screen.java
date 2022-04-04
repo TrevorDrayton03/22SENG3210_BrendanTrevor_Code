@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Switch;
 
 import com.example.onlinevotingsystem.Model.OptionAdapter;
 import com.example.onlinevotingsystem.Model.Topic;
@@ -19,14 +20,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class View_Topic_Screen extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
+    DatabaseReference databaseUpdateReference;
 
-    // for storing the options
     Topic options = new Topic();
+    Map<String, Object> uTopic = new HashMap<>();
     static int topicID;
 
     @Override
@@ -75,7 +79,63 @@ public class View_Topic_Screen extends AppCompatActivity {
             }
         });
     }
+
     // this is the onClick for when a switch is pressed to update the option in the DB
     public void updateOption(View view){
+
+        // this gets the value
+        int value = (Integer) view.getTag();
+        if(value == 1){
+            value = 0;
+        }
+        else {
+            value = 1;
+        }
+
+        // this gets the key
+        String uKey = ((Switch) view).getText().toString();
+        Log.d("ViewTopicScreen", "Option Key is : " + uKey);
+
+        // this is the Key value pair that's going to update the DB
+        Map<String, Integer> childUpdates = new HashMap<>();
+        childUpdates.put(uKey, value);
+
+        // instantiate connection to topics in db
+        database = FirebaseDatabase.getInstance("https://onlinevotingsystem-d6144-default-rtdb.firebaseio.com/");
+        databaseReference = database.getReference("Topics");
+
+        //read from the db
+        int finalValue = value;
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot topicSnapshot : dataSnapshot.getChildren()) {
+                    Topic topic = topicSnapshot.getValue(Topic.class);
+                    Map<String, Integer> topicOptions = topic.getOptions();
+                    for(String key : topicOptions.keySet()){
+                        if(key == uKey){
+                            Log.d("ViewTopicScreen", "Before Update."+ topic.getOptions());
+                            topicOptions.put(uKey, finalValue);
+                            String topicKey = topicSnapshot.getKey();
+                            uTopic.put("date", topic.getDate());
+                            uTopic.put("description", topic.getDescription());
+                            uTopic.put("topicID", topic.getTopicID());
+                            uTopic.put("title", topic.getTitle());
+                            uTopic.put("options", topicOptions);
+                            Log.d("ViewTopicScreen", "After update."+ topicOptions);
+
+                            databaseUpdateReference = database.getReference("Topics").child(topicKey);
+                            databaseUpdateReference.updateChildren(uTopic);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled (DatabaseError error){
+                //failed to read value
+                Log.w("Main activity", "Failed to read value.", error.toException());
+            }
+        });
     }
 }

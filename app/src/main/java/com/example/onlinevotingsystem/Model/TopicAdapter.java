@@ -36,8 +36,10 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
 
         // set item views
         Button button = holder.dynamicButton;
+
         // button name
         button.setText(topic.getTitle());
+
         // storing the topic id with the button
         // to help us identify which topic's options to show if the topic is clicked
         button.setTag(topic.getTopicID());

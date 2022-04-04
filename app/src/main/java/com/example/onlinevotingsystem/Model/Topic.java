@@ -13,17 +13,15 @@ public class Topic {
 
     String title;
     int topicID;
-    String description;
-    Date date;
+    String date;
 
     public Topic() {
 
     }
 
-    public Topic(String title, int topicID, String description, Date date, Map<String, Integer> options) {
+    public Topic(String title, int topicID, String date, Map<String, Integer> options) {
         this.title = title;
         this.topicID = topicID;
-        this.description = description;
         this.date = date;
         this.options = options;
     }
@@ -35,8 +33,6 @@ public class Topic {
         result.put("Option 2", 0);
         result.put("Option 3", 0);
         result.put("Option 4", 0);
-        result.put("Option 5", 0);
-        result.put("Option 6", 0);
 
         return result;
     }
@@ -47,19 +43,18 @@ public class Topic {
      * @param size
      * @param title
      * @param topicID
-     * @param description
      * @param date
      * @param options
      * @return
      */
-    public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String description, Date date, Map<String, Integer> options) {
-        topics.add(new Topic( title,  topicID,  description,  date, options));
+    public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String date, Map<String, Integer> options) {
+        topics.add(new Topic( title,  topicID,  date, options));
 
         // this ensures that the topics do not add up forever,
         // that the buttons that are generated from the topics list are never higher in count than they're supposed to be
         if(topics.size() > size) {
             topics.clear();
-            createTopicsList( size,  title,  topicID,  description,  date,  options);
+            createTopicsList( size,  title,  topicID,   date,  options);
         }
 
         return topics;
@@ -70,9 +65,9 @@ public class Topic {
      * @param
      * @return
      */
-    public static Topic createOptionsList(String title, int topicID, String description, Date date, Map<String, Integer> options) {
+    public static Topic createOptionsList(String title, int topicID, String date, Map<String, Integer> options) {
 
-        Topic topic = new Topic(title, topicID, description, date, options);
+        Topic topic = new Topic(title, topicID, date, options);
 
         return topic;
     }
@@ -84,11 +79,8 @@ public class Topic {
     public int getTopicID() { return topicID; }
     public void setTopicID(int topicID) { this.topicID = topicID; }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-
-    public Date getDate() {  return date; }
-    public void setDate(Date date) { this.date = date; }
+    public String getDate() {  return date; }
+    public void setDate(String date) { this.date = date; }
 
     public Map<String, Integer> getOptions() { return options; }
     public void setOptions(Map<String, Integer> options) { this.options = options; }

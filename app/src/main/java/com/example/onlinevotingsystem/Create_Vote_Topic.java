@@ -3,13 +3,12 @@ package com.example.onlinevotingsystem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -20,14 +19,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Create_Vote_Topic extends AppCompatActivity {
     private List<String> optionsList = new ArrayList<String>();
+    private Map<String, Integer> optionsMap = new HashMap<String, Integer>();
     ArrayAdapter<String> optionsAdapter;
     DatePickerDialog.OnDateSetListener setListener;
     TextView topicEndDate;
@@ -98,14 +98,17 @@ public class Create_Vote_Topic extends AppCompatActivity {
         String topicTitle=editText.getText().toString();
 
         //Convert our int format of our date into an actual date format
-        SimpleDateFormat topicEndDateTemp = new SimpleDateFormat("yyyy-MM-dd");
         String simpleDateInput = year+"-"+month+"-"+day;
-        Date date = topicEndDateTemp.parse(simpleDateInput);
+
+        for(int i = 0; i < optionsList.size(); i++)
+            optionsMap.put(optionsList.get(i), 0);
 
         //Inputting our information into a topic object
         // TODO: fix this options here
-/*        Topic newTopic = new Topic(topicTitle, 1, "dummyDescription", date, optionsList);
+        Topic newTopic = new Topic(topicTitle, 1, simpleDateInput, optionsMap);
 
-        databaseReference.child(topicTitle).setValue(newTopic);*/
+        databaseReference.child(topicTitle).setValue(newTopic);
+        Intent intent = new Intent(this, Manager_Dashboard.class);
+        startActivity(intent);
     }
 }

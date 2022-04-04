@@ -55,7 +55,7 @@ public class View_Topic_Screen extends AppCompatActivity {
                     if(topic.getTopicID() == topicID)
                     {
                         // add the current topic to the list of options
-                        options = Topic.createOptionsList(topic.getTitle(), topic.getTopicID(), topic.getDescription(), topic.getDate(), topic.getOptions());
+                        options = Topic.createOptionsList(topic.getTitle(), topic.getTopicID(), topic.getDate(), topic.getOptions());
                         // lookup the recyclerview in activity layout
                         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.viewTopicRecyclerView);
                         // create adapter passing in the topic data
@@ -113,7 +113,6 @@ public class View_Topic_Screen extends AppCompatActivity {
                             topicOptions.put(updatedKey, finalValue);
                             String topicKey = topicSnapshot.getKey();
                             updatedTopic.put("date", topic.getDate());
-                            updatedTopic.put("description", topic.getDescription());
                             updatedTopic.put("topicID", topic.getTopicID());
                             updatedTopic.put("title", topic.getTitle());
                             updatedTopic.put("options", topicOptions);

@@ -53,7 +53,7 @@ public class Manager_Dashboard extends AppCompatActivity {
                 for (DataSnapshot topicSnapshot : dataSnapshot.getChildren()) {
                     Topic topic = topicSnapshot.getValue(Topic.class);
                     // add the current topic to the list of topics
-                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDescription(), topic.getDate(), topic.getOptions());
+                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDate(), topic.getOptions());
                     // lookup the recyclerview
                     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.managerDashboardRecycler);
                     // create adapter, pass in the statistic data

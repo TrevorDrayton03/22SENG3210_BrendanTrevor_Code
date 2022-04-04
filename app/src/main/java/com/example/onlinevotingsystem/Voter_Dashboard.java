@@ -47,7 +47,7 @@ public class Voter_Dashboard extends AppCompatActivity {
                     Topic topic = topicSnapshot.getValue(Topic.class);
 
                     // add the current topic to the list of topics
-                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDescription(), topic.getDate(), topic.getOptions());
+                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDate(), topic.getOptions());
                     // lookup the recyclerview in activity layout
                     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
                     // create adapter passing in the topic data
@@ -61,7 +61,6 @@ public class Voter_Dashboard extends AppCompatActivity {
                     // Options value is: {Option 1=0, Option 2=0, Option 3=0, Option 4=0, Option 5=0, Option 6=0}
                     topic.setOptions(topic.toMap());
                     Log.d("Main activity", "Title value is: " + topic.getTitle());
-                    Log.d("Main activity", "Description value is: " + topic.getDescription());
                     Log.d("Main activity", "TopicID value is: " + topic.getTopicID());
                     Log.d("Main activity", "Date value is: " + topic.getDate());
                     Log.d("Main activity", "Options value is: " + topic.getOptions());

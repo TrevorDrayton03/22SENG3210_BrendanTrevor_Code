@@ -6,17 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".Manager_Dashboard">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/managerDashboardRecycler"
+        android:layout_width="398dp"
+        android:layout_height="449dp"
+        app:layout_constraintBottom_toTopOf="@+id/createTopicButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statisticsTitle"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/statisticsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="12dp"
-        android:layout_marginBottom="19dp"
         android:text="Statistics"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/managerDashboardSettingsButton" />
+        app:layout_constraintEnd_toStartOf="@+id/managerDashboardSettingsButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/createTopicButton"
@@ -33,67 +46,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="Settings"
         android:onClick="openSettings"
+        android:text="Settings"
         app:layout_constraintBottom_toTopOf="@+id/statisticsTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/statisticsTitle" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="1dp"
-        android:text="Topic 1"
-        app:layout_constraintEnd_toStartOf="@+id/statisticsTitle"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="18dp"
-        android:text="Topic 1"
-        app:layout_constraintStart_toStartOf="@+id/button7"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="Topic 1"
-        app:layout_constraintStart_toStartOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="19dp"
-        android:text="1/99"
-        app:layout_constraintStart_toEndOf="@+id/statisticsTitle"
-        app:layout_constraintTop_toBottomOf="@+id/statisticsTitle" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="1/99"
-        app:layout_constraintStart_toStartOf="@+id/button9"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:text="1/99"
-        app:layout_constraintStart_toStartOf="@+id/button5"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toTopOf="@+id/statisticsTitle"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

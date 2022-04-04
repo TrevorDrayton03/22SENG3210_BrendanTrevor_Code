@@ -1,20 +1,18 @@
-package com.example.onlinevotingsystem.Model;
+package com.example.onlinevotingsystem.Model.Adapter;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Switch;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.onlinevotingsystem.Model.Topic;
 import com.example.onlinevotingsystem.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;

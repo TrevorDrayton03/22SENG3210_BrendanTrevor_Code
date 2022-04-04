@@ -10,8 +10,7 @@
     <Switch
         android:id="@+id/dynamicOptionButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dynamic Option"
+        android:layout_height="54dp"
         android:onClick="updateOption"
-        />
+        android:text="Dynamic Option" />
 </LinearLayout>

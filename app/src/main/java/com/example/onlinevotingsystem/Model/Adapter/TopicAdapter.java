@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem.Model;
+package com.example.onlinevotingsystem.Model.Adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.onlinevotingsystem.Model.Topic;
 import com.example.onlinevotingsystem.R;
 
 import java.util.ArrayList;

@@ -4,24 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 
-import com.example.onlinevotingsystem.Model.OptionAdapter;
+import com.example.onlinevotingsystem.Model.Adapter.OptionAdapter;
 import com.example.onlinevotingsystem.Model.Topic;
-import com.example.onlinevotingsystem.Model.TopicAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class View_Topic_Screen extends AppCompatActivity {
@@ -30,7 +26,7 @@ public class View_Topic_Screen extends AppCompatActivity {
     DatabaseReference databaseUpdateReference;
 
     Topic options = new Topic();
-    Map<String, Object> uTopic = new HashMap<>();
+    Map<String, Object> updatedTopic = new HashMap<>();
     static int topicID;
 
     @Override
@@ -80,9 +76,8 @@ public class View_Topic_Screen extends AppCompatActivity {
         });
     }
 
-    // this is the onClick for when a switch is pressed to update the option in the DB
+    // this is the onClick for when a switch is pressed to change the option in the DB
     public void updateOption(View view){
-
         // this gets the value
         int value = (Integer) view.getTag();
         if(value == 1){
@@ -93,12 +88,12 @@ public class View_Topic_Screen extends AppCompatActivity {
         }
 
         // this gets the key
-        String uKey = ((Switch) view).getText().toString();
-        Log.d("ViewTopicScreen", "Option Key is : " + uKey);
+        String updatedKey = ((Switch) view).getText().toString();
+        Log.d("ViewTopicScreen", "Option Key is : " + updatedKey);
 
         // this is the Key value pair that's going to update the DB
         Map<String, Integer> childUpdates = new HashMap<>();
-        childUpdates.put(uKey, value);
+        childUpdates.put(updatedKey, value);
 
         // instantiate connection to topics in db
         database = FirebaseDatabase.getInstance("https://onlinevotingsystem-d6144-default-rtdb.firebaseio.com/");
@@ -113,27 +108,25 @@ public class View_Topic_Screen extends AppCompatActivity {
                     Topic topic = topicSnapshot.getValue(Topic.class);
                     Map<String, Integer> topicOptions = topic.getOptions();
                     for(String key : topicOptions.keySet()){
-                        if(key == uKey){
+                        if(key == updatedKey){
                             Log.d("ViewTopicScreen", "Before Update."+ topic.getOptions());
-                            topicOptions.put(uKey, finalValue);
+                            topicOptions.put(updatedKey, finalValue);
                             String topicKey = topicSnapshot.getKey();
-                            uTopic.put("date", topic.getDate());
-                            uTopic.put("description", topic.getDescription());
-                            uTopic.put("topicID", topic.getTopicID());
-                            uTopic.put("title", topic.getTitle());
-                            uTopic.put("options", topicOptions);
+                            updatedTopic.put("date", topic.getDate());
+                            updatedTopic.put("description", topic.getDescription());
+                            updatedTopic.put("topicID", topic.getTopicID());
+                            updatedTopic.put("title", topic.getTitle());
+                            updatedTopic.put("options", topicOptions);
                             Log.d("ViewTopicScreen", "After update."+ topicOptions);
 
                             databaseUpdateReference = database.getReference("Topics").child(topicKey);
-                            databaseUpdateReference.updateChildren(uTopic);
+                            databaseUpdateReference.updateChildren(updatedTopic);
                         }
                     }
                 }
             }
-
             @Override
             public void onCancelled (DatabaseError error){
-                //failed to read value
                 Log.w("Main activity", "Failed to read value.", error.toException());
             }
         });

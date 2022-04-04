@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.onlinevotingsystem.Model.OptionAdapter;
 import com.example.onlinevotingsystem.Model.Topic;
@@ -36,7 +38,7 @@ public class View_Topic_Screen extends AppCompatActivity {
         database = FirebaseDatabase.getInstance("https://onlinevotingsystem-d6144-default-rtdb.firebaseio.com/");
         databaseReference = database.getReference("Topics");
 
-        // get the topic ID passing through the intent
+        // get the topic ID passing through the intent from Voter_Dashboard::openViewTopic()
         Bundle topicIntent = getIntent().getExtras();
         if(topicIntent!=null)
         {
@@ -72,5 +74,8 @@ public class View_Topic_Screen extends AppCompatActivity {
                 Log.w("Main activity", "Failed to read value.", error.toException());
             }
         });
+    }
+    // this is the onClick for when a switch is pressed to update the option in the DB
+    public void updateOption(View view){
     }
 }

@@ -77,9 +77,6 @@ public class Voter_Dashboard extends AppCompatActivity {
         });
     }
 
-    /**
-     * Opens the settings view
-     */
     public void openSettings(View view) {
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Switch;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,12 +47,17 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
         // convert Collection to List so that we can get values by indexing with position
         List listOfValues = new ArrayList(values);
 
-        Button button = holder.dynamicOptionButton;
-        // name button
+        Switch button = holder.dynamicOptionButton;
+        // name each button
         button.setText(listOfKeys.get(position));
-        // give button tag the value to store for its key
+        // give each button tag the value to store for its key
         button.setTag(listOfValues.get(position));
         Log.d("OptionAdapter", "Button tag value is: " + button.getTag());
+        // switch is on if the value is 1 (i.e. if it is selected)
+        if((int) button.getTag() == 1) {
+            button.setChecked(true);
+        }
+        Log.d("OptionAdapter", "switch checked: " + button.isChecked());
     }
 
     @Override
@@ -62,7 +68,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public Button dynamicOptionButton;
+        public Switch dynamicOptionButton;
         // Create a constructor that accepts the entire item column
         // and does the view lookups to find each subview
         public ViewHolder(View itemView) {

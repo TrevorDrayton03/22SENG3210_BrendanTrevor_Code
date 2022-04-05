@@ -57,7 +57,7 @@ public class ManagerDashboardAdapter extends RecyclerView.Adapter<ManagerDashboa
         EditText text = holder.statisticOptions;
         // loop through each option to add to textview
         for(int i=0;i<listOfKeys.size();i++) {
-            text.append(listOfKeys.get(i) + ": " + listOfValues.get(i) + "     ");
+            text.append(listOfKeys.get(i) + ": " + listOfValues.get(i) + "\n");
         }
         Button deleteTopic = holder.deleteTopicButton;
         deleteTopic.setTag(currentTopic.getTopicID());
@@ -79,7 +79,7 @@ public class ManagerDashboardAdapter extends RecyclerView.Adapter<ManagerDashboa
             statisticText = itemView.findViewById(R.id.topicStatisticButton);
             statisticText.setInputType(InputType.TYPE_NULL);
             deleteTopicButton = itemView.findViewById(R.id.deleteTopicButton);
-            statisticOptions = itemView.findViewById(R.id.editTextMultiLineStatistics);
+            statisticOptions = itemView.findViewById(R.id.showOptionsStatisticsEditText);
         }
     }
 }

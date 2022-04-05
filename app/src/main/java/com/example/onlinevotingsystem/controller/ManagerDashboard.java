@@ -27,6 +27,7 @@ public class ManagerDashboard extends AppCompatActivity {
 
     private Button createTopicButton;
     ArrayList<Topic> topics = new ArrayList<>();
+    static int uID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,14 @@ public class ManagerDashboard extends AppCompatActivity {
             }
         });
 
+        // get the uID passing through the login screen intent
+        Bundle topicIntent = getIntent().getExtras();
+        if(topicIntent!=null)
+        {
+            uID = topicIntent.getInt("uID");
+        }
+
+
         // instantiate connection to topics in db
         database = FirebaseDatabase.getInstance("https://onlinevotingsystem-d6144-default-rtdb.firebaseio.com/");
         databaseReference = database.getReference("Topics");
@@ -53,7 +62,7 @@ public class ManagerDashboard extends AppCompatActivity {
                 for (DataSnapshot topicSnapshot : dataSnapshot.getChildren()) {
                     Topic topic = topicSnapshot.getValue(Topic.class);
                     // add the current topic to the list of topics
-                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDate(), topic.getOptions());
+                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDate(), topic.getOptions(), uID);
                     // lookup the recyclerview
                     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.managerDashboardRecycler);
                     // create adapter, pass in the statistic data

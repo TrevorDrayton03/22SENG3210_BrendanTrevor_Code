@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Topic {
     static ArrayList<Topic> topics = new ArrayList<>();
-    static ArrayList<Integer> topicVoters = new ArrayList<>();
+    public ArrayList<Integer> topicVoters = new ArrayList<>();
     public Map<String, Integer> options = new HashMap<>();
 
     String title;
@@ -20,11 +20,12 @@ public class Topic {
 
     }
 
-    public Topic(String title, int topicID, String date, Map<String, Integer> options) {
+    public Topic(String title, int topicID, String date, Map<String, Integer> options, int uID) {
         this.title = title;
         this.topicID = topicID;
         this.date = date;
         this.options = options;
+        this.currentVoter = uID;
     }
 
     @Exclude
@@ -48,14 +49,14 @@ public class Topic {
      * @param options
      * @return
      */
-    public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String date, Map<String, Integer> options) {
-        topics.add(new Topic( title,  topicID,  date, options));
+    public static ArrayList<Topic> createTopicsList(int size, String title, int topicID, String date, Map<String, Integer> options, int uID) {
+        topics.add(new Topic( title,  topicID,  date, options, uID));
 
         // this ensures that the topics do not add up forever,
         // that the buttons that are generated from the topics list are never higher in count than they're supposed to be
         if(topics.size() > size) {
             topics.clear();
-            createTopicsList( size,  title,  topicID,   date,  options);
+            createTopicsList( size,  title,  topicID,   date,  options,uID);
         }
         return topics;
     }
@@ -65,9 +66,9 @@ public class Topic {
      * @param
      * @return
      */
-    public static Topic createOptionsList(String title, int topicID, String date, Map<String, Integer> options) {
+    public static Topic createOptionsList(String title, int topicID, String date, Map<String, Integer> options, Integer uID) {
 
-        Topic topic = new Topic(title, topicID, date, options);
+        Topic topic = new Topic(title, topicID, date, options, uID);
 
         return topic;
     }
@@ -82,6 +83,7 @@ public class Topic {
     public int getCurrentVoter() { return currentVoter; }
     public String getDate() {  return date; }
     public Map<String, Integer> getOptions() { return options; }
+    public ArrayList<Integer> getTopicVoters() { return topicVoters; }
 
     /* SET METHODS */
     public void setTitle(String title) { this.title = title; }

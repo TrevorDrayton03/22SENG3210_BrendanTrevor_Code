@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.onlinevotingsystem.R;
 import com.example.onlinevotingsystem.model.User;
@@ -17,18 +19,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Map;
 
 public class Login extends AppCompatActivity {
-    // instantiate connection to topics in db
     FirebaseDatabase database;
     DatabaseReference databaseReference;
 
     private Button loginButton;
-    private EditText usernameTextEdit;
-    private EditText passwordTextEdit;
-    private String username;
-    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +39,11 @@ public class Login extends AppCompatActivity {
                 database = FirebaseDatabase.getInstance("https://onlinevotingsystem-d6144-default-rtdb.firebaseio.com/");
                 databaseReference = database.getReference("Users");
 
-                //get the user and password from the textEdits
                 EditText userTextEdit = (EditText) findViewById(R.id.usernameTextInput);
                 String username = userTextEdit.getText().toString();
                 EditText passwordTextEdit = (EditText) findViewById(R.id.passwordTextInput);
                 String password = passwordTextEdit.getText().toString();
-                Log.d("isitset", " " + username + " + " + password);
 
-
-                //compare them with the records in the DB
-
-                //if true then get userID, check type, go to correct dashboard
-
-                //if false ??
-
-                //read from the db
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -65,10 +51,11 @@ public class Login extends AppCompatActivity {
                             User user = topicSnapshot.getValue(User.class);
 
                             if (user.getPassword().equals(password) && user.getUsername().equals(username) && user.getType().equals("voter")) {
-                                Log.d("user snapshot", "True " + user.getUsername());
-                                openVoterDashboard();
+                                int uID = user.getUID();
+                                openVoterDashboard(uID);
                             } else if (user.getPassword().equals(password) && user.getUsername().equals(username) && user.getType().equals("manager")) {
-                                openManagerDashboard();
+                                int uID = user.getUID();
+                                openManagerDashboard(uID);
                             }
                         }
                     }
@@ -82,13 +69,15 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    public void openVoterDashboard() {
+    public void openVoterDashboard(int uID) {
         Intent intent = new Intent(this, VoterDashboard.class);
+        intent.putExtra("uID", uID);
         startActivity(intent);
     }
 
-    public void openManagerDashboard() {
+    public void openManagerDashboard(int uID) {
         Intent intent = new Intent(this, ManagerDashboard.class);
+        intent.putExtra("uID", uID);
         startActivity(intent);
     }
 }

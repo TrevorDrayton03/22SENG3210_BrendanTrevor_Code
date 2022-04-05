@@ -16,7 +16,7 @@
             android:name=".controller.VoterDashboard"
             android:exported="true" />
         <activity
-            android:name=".controller.Vote"
+            android:name=".controller.ViewTopic"
             android:exported="true" />
         <activity
             android:name=".controller.Setting"

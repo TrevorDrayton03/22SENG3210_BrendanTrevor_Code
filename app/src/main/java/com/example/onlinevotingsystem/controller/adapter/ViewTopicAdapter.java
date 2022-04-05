@@ -18,22 +18,22 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class VoteAdapter extends RecyclerView.Adapter<VoteAdapter.ViewHolder> {
+public class ViewTopicAdapter extends RecyclerView.Adapter<ViewTopicAdapter.ViewHolder> {
 
     private Topic dataModalTopic = new Topic();
 
-    public VoteAdapter(Topic dataModalTopic) {
+    public ViewTopicAdapter(Topic dataModalTopic) {
         this.dataModalTopic = dataModalTopic;
     }
 
     @Override
-    public VoteAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewTopicAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new VoteAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_option_buttons, parent, false));
+        return new ViewTopicAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_option_buttons, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(VoteAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewTopicAdapter.ViewHolder holder, int position) {
         // get the data model based on position
         Map<String, Integer> options = dataModalTopic.getOptions();
         // extract the keys into a set
@@ -49,12 +49,6 @@ public class VoteAdapter extends RecyclerView.Adapter<VoteAdapter.ViewHolder> {
         button.setText(listOfKeys.get(position));
         button.setTag(listOfValues.get(position));
         Log.d("OptionAdapter", "Button tag value is: " + button.getTag());
-
-        // switch is on if the value is 1 (i.e. if it is selected)
-        if((int) button.getTag() == 1) {
-            button.setChecked(true);
-        }
-        Log.d("OptionAdapter", "switch checked: " + button.isChecked());
     }
 
     @Override

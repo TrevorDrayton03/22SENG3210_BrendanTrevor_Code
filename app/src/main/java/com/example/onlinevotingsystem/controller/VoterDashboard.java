@@ -29,6 +29,7 @@ public class VoterDashboard extends AppCompatActivity {
 
     // for storing topics
     ArrayList<Topic> topics = new ArrayList<>();
+    static int uID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,14 @@ public class VoterDashboard extends AppCompatActivity {
         database = FirebaseDatabase.getInstance("https://onlinevotingsystem-d6144-default-rtdb.firebaseio.com/");
         databaseReference = database.getReference("Topics");
 
+        // get the uID passing through the login screen intent
+        Bundle topicIntent = getIntent().getExtras();
+        if(topicIntent!=null)
+        {
+            uID = topicIntent.getInt("uID");
+            Log.d("uID", "Title value is: " + uID);
+        }
+
         //read from the db
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -48,7 +57,7 @@ public class VoterDashboard extends AppCompatActivity {
                     Topic topic = topicSnapshot.getValue(Topic.class);
 
                     // add the current topic to the list of topics
-                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDate(), topic.getOptions());
+                    topics = Topic.createTopicsList(++size, topic.getTitle(), topic.getTopicID(), topic.getDate(), topic.getOptions(), uID);
                     // lookup the recyclerview in activity layout
                     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
                     // create adapter passing in the topic data
@@ -82,8 +91,9 @@ public class VoterDashboard extends AppCompatActivity {
     }
 
     public void openViewTopic(View view) {
-        Intent intent = new Intent(this, Vote.class);
+        Intent intent = new Intent(this, ViewTopic.class);
         intent.putExtra("TopicID", (int) view.getTag());
+        intent.putExtra("uID", uID);
         startActivity(intent);
     }
 }

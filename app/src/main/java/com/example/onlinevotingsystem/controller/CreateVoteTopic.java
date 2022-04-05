@@ -105,7 +105,8 @@ public class CreateVoteTopic extends AppCompatActivity {
             optionsMap.put(optionsList.get(i), 0);
 
         //Inputting our information into a topic object
-        Topic newTopic = new Topic(topicTitle, 1, simpleDateInput, optionsMap);
+        //TODO: fix the topicID insertion below so that it changes and is always different
+        Topic newTopic = new Topic(topicTitle, 1, simpleDateInput, optionsMap, -1);
 
         databaseReference.child(topicTitle).setValue(newTopic);
         Intent intent = new Intent(this, ManagerDashboard.class);

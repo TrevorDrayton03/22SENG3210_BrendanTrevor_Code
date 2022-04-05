@@ -45,7 +45,6 @@ public class VoterDashboard extends AppCompatActivity {
         if(topicIntent!=null)
         {
             uID = topicIntent.getInt("uID");
-            Log.d("uID", "Title value is: " + uID);
         }
 
         //read from the db
@@ -66,14 +65,6 @@ public class VoterDashboard extends AppCompatActivity {
                     recyclerView.setAdapter(adapter);
                     // Set layout manager to position the items
                     recyclerView.setLayoutManager(new LinearLayoutManager(VoterDashboard.this));
-
-                    // topic.setOptions(topic.toMap()) prints:
-                    // Options value is: {Option 1=0, Option 2=0, Option 3=0, Option 4=0, Option 5=0, Option 6=0}
-                    topic.setOptions(topic.toMap());
-                    Log.d("Main activity", "Title value is: " + topic.getTitle());
-                    Log.d("Main activity", "TopicID value is: " + topic.getTopicID());
-                    Log.d("Main activity", "Date value is: " + topic.getDate());
-                    Log.d("Main activity", "Options value is: " + topic.getOptions());
                 }
             }
 

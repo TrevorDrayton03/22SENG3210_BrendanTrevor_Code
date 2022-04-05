@@ -39,7 +39,7 @@ public class ViewTopic extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_topic_screen);
+        setContentView(R.layout.activity_view_topic);
 
         // instantiate connection to topics in db
         database = FirebaseDatabase.getInstance("https://onlinevotingsystem-d6144-default-rtdb.firebaseio.com/");
@@ -49,9 +49,7 @@ public class ViewTopic extends AppCompatActivity {
         Bundle topicIntent = getIntent().getExtras();
         if (topicIntent != null) {
             topicID = topicIntent.getInt("TopicID");
-            Log.d("ViewTopicScreen", "Passed topic id is : " + topicID);
             uID = topicIntent.getInt("uID");
-            Log.d("amazing", "Passed uID is : " + uID);
 
         }
 
@@ -91,7 +89,6 @@ public class ViewTopic extends AppCompatActivity {
 
         // this gets the key
         String updatedKey = ((Button) view).getText().toString();
-        Log.d("ViewTopicScreen", "Option Key is : " + updatedKey);
 
         // this is the Key value pair that's going to update the DB
         Map<String, Integer> childUpdates = new HashMap<>();

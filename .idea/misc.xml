@@ -15,6 +15,7 @@
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/activity_main.xml" value="0.296195652173913" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/activity_manager_dashboard.xml" value="0.26785714285714285" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/activity_settings.xml" value="0.25" />
+        <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/activity_view_topic.xml" value="0.12689969604863222" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/activity_view_topic_screen.xml" value="0.296195652173913" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/activity_voter_dashboard.xml" value="0.17" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/dynamic_topic_buttons.xml" value="0.1" />
@@ -24,6 +25,8 @@
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/recycler_dynamic_topic_buttons.xml" value="0.33" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/recycler_dynamic_topic_options.xml" value="0.5" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/recycler_dynamic_topic_statistics.xml" value="0.1" />
+        <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/recycler_manager_dashboard.xml" value="0.16168478260869565" />
+        <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/recycler_view_topic.xml" value="0.12689969604863222" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/settings.xml" value="0.296195652173913" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/view_topic_screen.xml" value="0.296195652173913" />
         <entry key="..\:/Android-Project/SENG3210_B-T_Code/app/src/main/res/layout/voter_dashboard.xml" value="0.296195652173913" />

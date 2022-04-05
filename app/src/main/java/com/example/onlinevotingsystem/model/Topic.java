@@ -28,17 +28,6 @@ public class Topic {
         this.currentVoter = uID;
     }
 
-    @Exclude
-    public Map<String, Integer> toMap() {
-        HashMap<String, Integer> result = new HashMap<>();
-        result.put("Option 1", 0);
-        result.put("Option 2", 0);
-        result.put("Option 3", 0);
-        result.put("Option 4", 0);
-
-        return result;
-    }
-
     //TODO: write the comments for these functions
     /**
      *

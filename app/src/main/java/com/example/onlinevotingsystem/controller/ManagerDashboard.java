@@ -24,8 +24,10 @@ import java.util.ArrayList;
 public class ManagerDashboard extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
+    DatabaseReference deleteDatabaseReference;
 
     private Button createTopicButton;
+    private Button deleteTopicButton;
     ArrayList<Topic> topics = new ArrayList<>();
     static int uID;
 
@@ -34,7 +36,11 @@ public class ManagerDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_dashboard);
 
+/*
+        deleteTopicButton = (Button) findViewById(R.id.deleteTopicButton);
+*/
         createTopicButton = (Button) findViewById(R.id.createTopicButton);
+
         createTopicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,10 +48,18 @@ public class ManagerDashboard extends AppCompatActivity {
             }
         });
 
+/*        deleteTopicButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                deleteTopic((Integer) deleteTopicButton.getTag());
+
+            }
+        });*/
+
         // get the uID passing through the login screen intent
         Bundle topicIntent = getIntent().getExtras();
-        if(topicIntent!=null)
-        {
+        if (topicIntent != null) {
             uID = topicIntent.getInt("uID");
         }
 
@@ -90,5 +104,28 @@ public class ManagerDashboard extends AppCompatActivity {
     public void openSettings(View view) {
         Intent intent = new Intent(this, Setting.class);
         startActivity(intent);
+    }
+
+    public void deleteTopic(View view) {
+        int deleteTopicID = (Integer) view.getTag();
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot topicSnapshot : dataSnapshot.getChildren()) {
+                    Topic topic = topicSnapshot.getValue(Topic.class);
+                    if(topic.getTopicID() == deleteTopicID){
+                        deleteDatabaseReference = database.getReference("Topics").child(topicSnapshot.getKey());
+                        deleteDatabaseReference.removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                //failed to read value
+                Log.w("Manager Dashboard", "Failed to read value.", error.toException());
+            }
+        });
     }
 }

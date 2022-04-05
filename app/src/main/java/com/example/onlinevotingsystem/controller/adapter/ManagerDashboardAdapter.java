@@ -32,7 +32,7 @@ public class ManagerDashboardAdapter extends RecyclerView.Adapter<ManagerDashboa
     @Override
     public ManagerDashboardAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new ManagerDashboardAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_topic_statistics, parent, false));
+        return new ManagerDashboardAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_manager_dashboard, parent, false));
     }
 
     @Override
@@ -51,14 +51,16 @@ public class ManagerDashboardAdapter extends RecyclerView.Adapter<ManagerDashboa
         List listOfValues = new ArrayList(values);
 
         // button to show topic title
-        Button button = holder.statisticText;
-        button.setText(currentTopic.getTitle());
+        Button topicName = holder.statisticText;
+        topicName.setText(currentTopic.getTitle());
         // textview to show options and their values
         EditText text = holder.statisticOptions;
         // loop through each option to add to textview
         for(int i=0;i<listOfKeys.size();i++) {
             text.append(listOfKeys.get(i) + ": " + listOfValues.get(i) + "     ");
         }
+        Button deleteTopic = holder.deleteTopicButton;
+        deleteTopic.setTag(currentTopic.getTopicID());
 
     }
 
@@ -69,12 +71,14 @@ public class ManagerDashboardAdapter extends RecyclerView.Adapter<ManagerDashboa
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public Button statisticText;
+        public Button deleteTopicButton;
         public EditText statisticOptions;
 
         public ViewHolder(View itemView) {
             super(itemView);
             statisticText = itemView.findViewById(R.id.topicStatisticButton);
             statisticText.setInputType(InputType.TYPE_NULL);
+            deleteTopicButton = itemView.findViewById(R.id.deleteTopicButton);
             statisticOptions = itemView.findViewById(R.id.editTextMultiLineStatistics);
         }
     }

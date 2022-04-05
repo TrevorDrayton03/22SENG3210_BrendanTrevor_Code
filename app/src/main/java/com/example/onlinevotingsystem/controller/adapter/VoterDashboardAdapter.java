@@ -27,7 +27,7 @@ public class VoterDashboardAdapter extends RecyclerView.Adapter<VoterDashboardAd
     @Override
     public VoterDashboardAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new VoterDashboardAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_topic_buttons, parent, false));
+        return new VoterDashboardAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_voter_dashboard, parent, false));
     }
 
     @Override
@@ -44,7 +44,6 @@ public class VoterDashboardAdapter extends RecyclerView.Adapter<VoterDashboardAd
         // storing the topic id with the button
         // to help us identify which topic's options to show if the topic is clicked
         button.setTag(topic.getTopicID());
-        Log.d("TopicAdapter", "Button tag value is: " + button.getTag());
 
     }
 

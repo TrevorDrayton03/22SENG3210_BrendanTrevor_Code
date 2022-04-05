@@ -29,7 +29,7 @@ public class ViewTopicAdapter extends RecyclerView.Adapter<ViewTopicAdapter.View
     @Override
     public ViewTopicAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new ViewTopicAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_option_buttons, parent, false));
+        return new ViewTopicAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_view_topic, parent, false));
     }
 
     @Override
@@ -48,7 +48,6 @@ public class ViewTopicAdapter extends RecyclerView.Adapter<ViewTopicAdapter.View
         Button button = holder.dynamicOptionButton;
         button.setText(listOfKeys.get(position));
         button.setTag(listOfValues.get(position));
-        Log.d("OptionAdapter", "Button tag value is: " + button.getTag());
     }
 
     @Override

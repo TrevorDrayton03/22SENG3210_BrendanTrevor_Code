@@ -25,6 +25,5 @@ public class Setting extends AppCompatActivity {
      */
     public void toggleDarkMode(View view){
         darkModeEnabled = !darkModeEnabled;
-        Log.d("Dark Mode", "Enabled " + darkModeEnabled);
     }
 }

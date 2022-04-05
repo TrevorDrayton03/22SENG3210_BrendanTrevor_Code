@@ -1,5 +1,22 @@
 <resources>
+    <!-- titles -->
     <string name="app_name">OnlineVotingSystem</string>
-    <!-- TODO: strings for project -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_topic_screen_title">Voting</string>
+    <string name="voter_dashboard_screen_title">Dashboard</string>
+    <string name="manager_dashboard_screen_title">Dashboard</string>
+    <string name="create_vote_screen_title">Create Topic</string>
+    <string name="settings_screen_title">Settings</string>
+    <string name="login_screen_title">Login to OVS</string>
+    <!-- buttons -->
+    <string name="add_vote_option_button">Add</string>
+    <string name="create_topic_button">Create</string>
+    <string name="create_topic_view_button">Create Topic</string>
+    <string name="dark_mode_button">Dark Mode</string>
+    <string name="settings_button">Settings</string>
+    <!-- text views -->
+    <string name="voting_option_text_input">Voting Option</string>
+    <string name="username_input">Username</string>
+    <string name="password_input">Password</string>
+    <string name="finish_date_input">Select Finish Date</string>
+    <string name="topic_title_input">Title</string>
 </resources>

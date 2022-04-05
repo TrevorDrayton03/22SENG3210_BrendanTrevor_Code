@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Create_Vote_Topic">
+    tools:context=".controller.Create_Vote_Topic">
 
 
     <TextView
         android:id="@+id/createVoteTopicTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Vote Topic"
+        android:text="@string/create_vote_screen_title"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="76dp" />
+        tools:layout_editor_absoluteY="55dp" />
 
     <EditText
         android:id="@+id/votingOptionTextInput"
@@ -27,7 +28,7 @@
         android:layout_marginBottom="37dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Voting Option"
+        android:text="@string/voting_option_text_input"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toStartOf="@+id/addVotingOption"
         app:layout_constraintStart_toStartOf="parent" />
@@ -37,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="addOption"
-        android:text="Add"
+        android:text="@string/add_vote_option_button"
         app:layout_constraintBaseline_toBaselineOf="@+id/votingOptionTextInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/votingOptionTextInput" />
@@ -47,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Select Finish Date"
+        android:text="@string/finish_date_input"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
         android:layout_marginTop="18dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Vote Topic Title"
+        android:text="@string/topic_title_input"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/createVoteTopicTitle"
         app:layout_constraintTop_toBottomOf="@+id/createVoteTopicTitle" />
@@ -90,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="33dp"
-        android:text="Create"
+        android:text="@string/create_topic_button"
         android:onClick="createTopic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

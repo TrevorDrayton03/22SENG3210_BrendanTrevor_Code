@@ -1,10 +1,12 @@
-package com.example.onlinevotingsystem;
+package com.example.onlinevotingsystem.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import com.example.onlinevotingsystem.R;
 
 public class Settings extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem;
+package com.example.onlinevotingsystem.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.onlinevotingsystem.Model.Topic;
+import com.example.onlinevotingsystem.model.Topic;
+import com.example.onlinevotingsystem.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

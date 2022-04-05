@@ -1,9 +1,8 @@
-package com.example.onlinevotingsystem.Model;
+package com.example.onlinevotingsystem.model;
 
 import com.google.firebase.database.Exclude;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 

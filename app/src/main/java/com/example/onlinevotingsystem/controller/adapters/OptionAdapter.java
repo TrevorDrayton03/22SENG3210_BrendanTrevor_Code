@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem.Model.Adapter;
+package com.example.onlinevotingsystem.controller.adapters;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.Switch;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.onlinevotingsystem.Model.Topic;
+import com.example.onlinevotingsystem.model.Topic;
 import com.example.onlinevotingsystem.R;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder
         Map<String, Integer> options = dataModalTopic.getOptions();
         Set<String> keySet = dataModalTopic.getOptions().keySet();
         // keys to ArrayList
-        ArrayList<String> listOfKeys = new ArrayList<String>(keySet);
+        ArrayList<String> listOfKeys = new ArrayList<>(keySet);
         // values to Collection
         Collection<Integer> values = options.values();
         // convert Collection to List so that we can get values by indexing with position

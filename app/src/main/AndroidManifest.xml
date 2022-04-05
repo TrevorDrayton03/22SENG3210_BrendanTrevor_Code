@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineVotingSystem">
         <activity
-            android:name=".Create_Vote_Topic"
+            android:name=".controller.Create_Vote_Topic"
             android:exported="true" />
         <activity
-            android:name=".Voter_Dashboard"
+            android:name=".controller.Voter_Dashboard"
             android:exported="true" />
         <activity
-            android:name=".View_Topic_Screen"
+            android:name=".controller.View_Topic_Screen"
             android:exported="true" />
         <activity
-            android:name=".Settings"
+            android:name=".controller.Settings"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".controller.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Manager_Dashboard"
+            android:name=".controller.Manager_Dashboard"
             android:exported="true" />
     </application>
 

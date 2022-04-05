@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    tools:context=".controller.Login">
 
     <TextView
         android:id="@+id/textView2"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
         android:layout_marginTop="38dp"
-        android:text="Online Voting System"
+        android:text="@string/login_screen_title"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Username"
+        android:text="@string/username_input"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Password"
+        android:text="@string/password_input"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="@+id/usernameTextInput"
         app:layout_constraintTop_toBottomOf="@+id/usernameTextInput" />

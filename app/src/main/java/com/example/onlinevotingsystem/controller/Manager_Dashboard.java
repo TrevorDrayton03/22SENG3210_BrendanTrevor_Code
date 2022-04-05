@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem;
+package com.example.onlinevotingsystem.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,8 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.onlinevotingsystem.Model.Adapter.StatisticAdapter;
-import com.example.onlinevotingsystem.Model.Topic;
+import com.example.onlinevotingsystem.model.Topic;
+import com.example.onlinevotingsystem.R;
+import com.example.onlinevotingsystem.controller.adapters.StatisticAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Manager_Dashboard extends AppCompatActivity {
     FirebaseDatabase database;

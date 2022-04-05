@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem;
+package com.example.onlinevotingsystem.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,8 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 
-import com.example.onlinevotingsystem.Model.Adapter.OptionAdapter;
-import com.example.onlinevotingsystem.Model.Topic;
+import com.example.onlinevotingsystem.model.Topic;
+import com.example.onlinevotingsystem.controller.adapters.OptionAdapter;
+import com.example.onlinevotingsystem.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

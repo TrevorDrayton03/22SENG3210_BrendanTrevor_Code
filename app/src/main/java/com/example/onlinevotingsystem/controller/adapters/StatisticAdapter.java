@@ -1,6 +1,7 @@
-package com.example.onlinevotingsystem.Model.Adapter;
+package com.example.onlinevotingsystem.controller.adapters;
 
 import android.content.Context;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,7 @@ import android.widget.EditText;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.onlinevotingsystem.Model.Topic;
+import com.example.onlinevotingsystem.model.Topic;
 import com.example.onlinevotingsystem.R;
 
 import java.util.ArrayList;
@@ -73,6 +74,7 @@ public class StatisticAdapter extends RecyclerView.Adapter<StatisticAdapter.View
         public ViewHolder(View itemView) {
             super(itemView);
             statisticText = itemView.findViewById(R.id.topicStatisticButton);
+            statisticText.setInputType(InputType.TYPE_NULL);
             statisticOptions = itemView.findViewById(R.id.editTextMultiLineStatistics);
         }
     }

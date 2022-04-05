@@ -11,6 +11,5 @@
         android:id="@+id/dynamicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="openViewTopic"
-        android:text="Dynamic Button" />
+        android:onClick="openViewTopic" />
 </LinearLayout>

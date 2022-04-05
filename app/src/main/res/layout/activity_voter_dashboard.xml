@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Voter_Dashboard" >
+    tools:context=".controller.Voter_Dashboard" >
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="38dp"
         android:onClick="openSettings"
-        android:text="Settings"
+        android:text="@string/settings_button"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.833"
@@ -33,10 +33,12 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="114dp"
-        android:layout_height="70dp"
+        android:layout_width="175dp"
+        android:layout_height="88dp"
         android:gravity="center_horizontal"
-        android:text="Dashboard"
+        android:text="@string/voter_dashboard_screen_title"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

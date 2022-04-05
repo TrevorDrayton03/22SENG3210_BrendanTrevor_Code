@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Switch;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.onlinevotingsystem.model.Topic;
@@ -84,13 +84,13 @@ public class ViewTopic extends AppCompatActivity {
         });
     }
 
-    // this is the onClick for when a switch is pressed to change the option in the DB
+    // this is the onClick for when a button is pressed to change the option in the DB
     public void updateOption(View view) {
         // this gets the vote count of the option
         int value = (Integer) view.getTag();
 
         // this gets the key
-        String updatedKey = ((Switch) view).getText().toString();
+        String updatedKey = ((Button) view).getText().toString();
         Log.d("ViewTopicScreen", "Option Key is : " + updatedKey);
 
         // this is the Key value pair that's going to update the DB

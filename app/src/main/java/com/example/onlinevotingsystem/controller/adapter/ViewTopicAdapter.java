@@ -4,7 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
+import android.widget.Button;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,7 +45,7 @@ public class ViewTopicAdapter extends RecyclerView.Adapter<ViewTopicAdapter.View
         // convert the collection to List so that we can get values by position
         List listOfValues = new ArrayList(values);
 
-        Switch button = holder.dynamicOptionButton;
+        Button button = holder.dynamicOptionButton;
         button.setText(listOfKeys.get(position));
         button.setTag(listOfValues.get(position));
         Log.d("OptionAdapter", "Button tag value is: " + button.getTag());
@@ -59,7 +59,7 @@ public class ViewTopicAdapter extends RecyclerView.Adapter<ViewTopicAdapter.View
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public Switch dynamicOptionButton;
+        public Button dynamicOptionButton;
         // Create a constructor that accepts the entire item column
         // and does the view lookups to find each subview
         public ViewHolder(View itemView) {

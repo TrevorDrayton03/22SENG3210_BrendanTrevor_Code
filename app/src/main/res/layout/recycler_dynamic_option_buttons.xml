@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
@@ -7,9 +8,15 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
-    <Switch
+    <Button
+
         android:id="@+id/dynamicOptionButton"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="54dp"
-        android:onClick="updateOption" />
+        android:minWidth="48dp"
+        android:onClick="updateOption"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+
+        tools:ignore="SpeakableTextPresentCheck" />
 </LinearLayout>

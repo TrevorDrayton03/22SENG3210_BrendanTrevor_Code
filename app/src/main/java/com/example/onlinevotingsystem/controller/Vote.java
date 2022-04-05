@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Switch;
 
 import com.example.onlinevotingsystem.model.Topic;
-import com.example.onlinevotingsystem.controller.adapters.OptionAdapter;
+import com.example.onlinevotingsystem.controller.adapter.VoteAdapter;
 import com.example.onlinevotingsystem.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class View_Topic_Screen extends AppCompatActivity {
+public class Vote extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
     DatabaseReference databaseUpdateReference;
@@ -30,6 +30,9 @@ public class View_Topic_Screen extends AppCompatActivity {
     Map<String, Object> updatedTopic = new HashMap<>();
     static int topicID;
 
+    // this onCreate receives a Topic ID passed from the Voter_Dashboard:openViewTopic() intent
+    // then it searches the topics in the database for the one that has the topic id
+    // then it extracts the options and sends them to the OptionAdapter to dynamically load them
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,11 +63,11 @@ public class View_Topic_Screen extends AppCompatActivity {
                         // lookup the recyclerview in activity layout
                         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.viewTopicRecyclerView);
                         // create adapter passing in the topic data
-                        OptionAdapter adapter = new OptionAdapter(options);
+                        VoteAdapter adapter = new VoteAdapter(options);
                         // Attach the adapter to the recyclerview to populate items
                         recyclerView.setAdapter(adapter);
                         // Set layout manager to position the items
-                        recyclerView.setLayoutManager(new LinearLayoutManager(View_Topic_Screen.this));
+                        recyclerView.setLayoutManager(new LinearLayoutManager(Vote.this));
                     }
                 }
             }

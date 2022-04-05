@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineVotingSystem">
         <activity
-            android:name=".controller.Create_Vote_Topic"
+            android:name=".controller.CreateVoteTopic"
             android:exported="true" />
         <activity
-            android:name=".controller.Voter_Dashboard"
+            android:name=".controller.VoterDashboard"
             android:exported="true" />
         <activity
-            android:name=".controller.View_Topic_Screen"
+            android:name=".controller.Vote"
             android:exported="true" />
         <activity
-            android:name=".controller.Settings"
+            android:name=".controller.Setting"
             android:exported="true" />
         <activity
             android:name=".controller.Login"
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".controller.Manager_Dashboard"
+            android:name=".controller.ManagerDashboard"
             android:exported="true" />
     </application>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.View_Topic_Screen">
+    tools:context=".controller.Vote">
 
     <TextView
         android:id="@+id/textView"

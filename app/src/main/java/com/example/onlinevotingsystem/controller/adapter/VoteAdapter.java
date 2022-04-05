@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem.controller.adapters;
+package com.example.onlinevotingsystem.controller.adapter;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,39 +18,38 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class OptionAdapter extends RecyclerView.Adapter<OptionAdapter.ViewHolder> {
+public class VoteAdapter extends RecyclerView.Adapter<VoteAdapter.ViewHolder> {
 
     private Topic dataModalTopic = new Topic();
 
-    // pass in topic variable into OptionAdapter constructor
-    public OptionAdapter(Topic dataModalTopic) {
+    public VoteAdapter(Topic dataModalTopic) {
         this.dataModalTopic = dataModalTopic;
     }
 
     @Override
-    public OptionAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public VoteAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new OptionAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_option_buttons, parent, false));
+        return new VoteAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_option_buttons, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(OptionAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(VoteAdapter.ViewHolder holder, int position) {
         // get the data model based on position
         Map<String, Integer> options = dataModalTopic.getOptions();
+        // extract the keys into a set
         Set<String> keySet = dataModalTopic.getOptions().keySet();
-        // keys to ArrayList
+        // convert set of keys to ArrayList
         ArrayList<String> listOfKeys = new ArrayList<>(keySet);
-        // values to Collection
+        // convert a collection of values
         Collection<Integer> values = options.values();
-        // convert Collection to List so that we can get values by indexing with position
+        // convert the collection to List so that we can get values by position
         List listOfValues = new ArrayList(values);
 
         Switch button = holder.dynamicOptionButton;
-        // name each button
         button.setText(listOfKeys.get(position));
-        // give each button tag the value to store for its key
         button.setTag(listOfValues.get(position));
         Log.d("OptionAdapter", "Button tag value is: " + button.getTag());
+
         // switch is on if the value is 1 (i.e. if it is selected)
         if((int) button.getTag() == 1) {
             button.setChecked(true);

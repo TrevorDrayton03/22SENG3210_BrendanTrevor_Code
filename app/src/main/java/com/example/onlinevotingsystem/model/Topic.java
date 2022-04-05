@@ -8,11 +8,13 @@ import java.util.Map;
 
 public class Topic {
     static ArrayList<Topic> topics = new ArrayList<>();
+    static ArrayList<Integer> topicVoters = new ArrayList<>();
     public Map<String, Integer> options = new HashMap<>();
 
     String title;
     int topicID;
     String date;
+    int currentVoter;
 
     public Topic() {
 
@@ -55,7 +57,6 @@ public class Topic {
             topics.clear();
             createTopicsList( size,  title,  topicID,   date,  options);
         }
-
         return topics;
     }
 
@@ -71,16 +72,21 @@ public class Topic {
         return topic;
     }
 
-    /* GET AND SET METHODS */
+    public void addUserToTopicVotersList(int uID) {
+        topicVoters.add(uID);
+    }
+
+    /* GET METHODS */
     public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-
     public int getTopicID() { return topicID; }
-    public void setTopicID(int topicID) { this.topicID = topicID; }
-
+    public int getCurrentVoter() { return currentVoter; }
     public String getDate() {  return date; }
-    public void setDate(String date) { this.date = date; }
-
     public Map<String, Integer> getOptions() { return options; }
+
+    /* SET METHODS */
+    public void setTitle(String title) { this.title = title; }
+    public void setTopicID(int topicID) { this.topicID = topicID; }
+    public void setCurrentVoter(int uID) { this.currentVoter = uID; }
+    public void setDate(String date) { this.date = date; }
     public void setOptions(Map<String, Integer> options) { this.options = options; }
 }

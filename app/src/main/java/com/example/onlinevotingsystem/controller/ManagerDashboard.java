@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.example.onlinevotingsystem.model.Topic;
 import com.example.onlinevotingsystem.R;
-import com.example.onlinevotingsystem.controller.adapters.StatisticAdapter;
+import com.example.onlinevotingsystem.controller.adapter.ManagerDashboardAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Manager_Dashboard extends AppCompatActivity {
+public class ManagerDashboard extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
 
@@ -57,11 +57,11 @@ public class Manager_Dashboard extends AppCompatActivity {
                     // lookup the recyclerview
                     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.managerDashboardRecycler);
                     // create adapter, pass in the statistic data
-                    StatisticAdapter adapter = new StatisticAdapter(topics);
+                    ManagerDashboardAdapter adapter = new ManagerDashboardAdapter(topics);
                     // Attach the adapter to the recyclerview to populate items
                     recyclerView.setAdapter(adapter);
                     // Set layout manager to position the items
-                    recyclerView.setLayoutManager(new LinearLayoutManager(Manager_Dashboard.this));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(ManagerDashboard.this));
                 }
             }
 
@@ -74,12 +74,12 @@ public class Manager_Dashboard extends AppCompatActivity {
     }
 
     public void openCreateTopicScreen() {
-        Intent intent = new Intent(this, Create_Vote_Topic.class);
+        Intent intent = new Intent(this, CreateVoteTopic.class);
         startActivity(intent);
     }
 
     public void openSettings(View view) {
-        Intent intent = new Intent(this, Settings.class);
+        Intent intent = new Intent(this, Setting.class);
         startActivity(intent);
     }
 }

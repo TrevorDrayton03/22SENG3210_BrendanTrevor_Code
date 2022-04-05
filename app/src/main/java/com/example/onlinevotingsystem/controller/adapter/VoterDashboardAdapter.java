@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem.controller.adapters;
+package com.example.onlinevotingsystem.controller.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -14,24 +14,24 @@ import com.example.onlinevotingsystem.R;
 
 import java.util.ArrayList;
 
-public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
+public class VoterDashboardAdapter extends RecyclerView.Adapter<VoterDashboardAdapter.ViewHolder> {
 
     // variable for storing topics
     private ArrayList<Topic> dataModalArrayList = new ArrayList<>();
 
     // pass in variable for storing topics into constructor
-    public TopicAdapter(ArrayList<Topic> dataModalArrayList) {
+    public VoterDashboardAdapter(ArrayList<Topic> dataModalArrayList) {
         this.dataModalArrayList = dataModalArrayList;
     }
 
     @Override
-    public TopicAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public VoterDashboardAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new TopicAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_topic_buttons, parent, false));
+        return new VoterDashboardAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_topic_buttons, parent, false));
     }
 
     @Override
-    public void onBindViewHolder( TopicAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(VoterDashboardAdapter.ViewHolder holder, int position) {
         // get the data model based on position
         Topic topic = dataModalArrayList.get(position);
 

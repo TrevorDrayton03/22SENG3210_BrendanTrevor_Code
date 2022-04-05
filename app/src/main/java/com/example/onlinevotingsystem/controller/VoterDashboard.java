@@ -13,7 +13,7 @@ import android.view.View;
 
 import com.example.onlinevotingsystem.model.Topic;
 import com.example.onlinevotingsystem.R;
-import com.example.onlinevotingsystem.controller.adapters.TopicAdapter;
+import com.example.onlinevotingsystem.controller.adapter.VoterDashboardAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Voter_Dashboard extends AppCompatActivity {
+public class VoterDashboard extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
 
@@ -52,11 +52,11 @@ public class Voter_Dashboard extends AppCompatActivity {
                     // lookup the recyclerview in activity layout
                     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
                     // create adapter passing in the topic data
-                    TopicAdapter adapter = new TopicAdapter(topics);
+                    VoterDashboardAdapter adapter = new VoterDashboardAdapter(topics);
                     // Attach the adapter to the recyclerview to populate items
                     recyclerView.setAdapter(adapter);
                     // Set layout manager to position the items
-                    recyclerView.setLayoutManager(new LinearLayoutManager(Voter_Dashboard.this));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(VoterDashboard.this));
 
                     // topic.setOptions(topic.toMap()) prints:
                     // Options value is: {Option 1=0, Option 2=0, Option 3=0, Option 4=0, Option 5=0, Option 6=0}
@@ -77,13 +77,12 @@ public class Voter_Dashboard extends AppCompatActivity {
     }
 
     public void openSettings(View view) {
-        Intent intent = new Intent(this, Settings.class);
+        Intent intent = new Intent(this, Setting.class);
         startActivity(intent);
     }
 
     public void openViewTopic(View view) {
-        Intent intent = new Intent(this, View_Topic_Screen.class);
-        // pass topic ID through this intent, must be typecast to int
+        Intent intent = new Intent(this, Vote.class);
         intent.putExtra("TopicID", (int) view.getTag());
         startActivity(intent);
     }

@@ -13,6 +13,7 @@
     <string name="create_topic_view_button">Create Topic</string>
     <string name="dark_mode_button">Dark Mode</string>
     <string name="settings_button">Settings</string>
+    <string name="login_button">Login</string>
     <!-- text views -->
     <string name="voting_option_text_input">Voting Option</string>
     <string name="username_input">Username</string>

@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Create_Vote_Topic extends AppCompatActivity {
+public class CreateVoteTopic extends AppCompatActivity {
     private List<String> optionsList = new ArrayList<String>();
     private Map<String, Integer> optionsMap = new HashMap<String, Integer>();
     ArrayAdapter<String> optionsAdapter;
@@ -57,7 +57,7 @@ public class Create_Vote_Topic extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
-                        Create_Vote_Topic.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth
+                        CreateVoteTopic.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth
                         ,setListener,year,month,day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
@@ -105,11 +105,10 @@ public class Create_Vote_Topic extends AppCompatActivity {
             optionsMap.put(optionsList.get(i), 0);
 
         //Inputting our information into a topic object
-        // TODO: fix this options here
         Topic newTopic = new Topic(topicTitle, 1, simpleDateInput, optionsMap);
 
         databaseReference.child(topicTitle).setValue(newTopic);
-        Intent intent = new Intent(this, Manager_Dashboard.class);
+        Intent intent = new Intent(this, ManagerDashboard.class);
         startActivity(intent);
     }
 }

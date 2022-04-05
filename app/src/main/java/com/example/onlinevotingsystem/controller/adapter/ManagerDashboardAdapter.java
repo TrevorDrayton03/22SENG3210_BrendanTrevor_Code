@@ -1,4 +1,4 @@
-package com.example.onlinevotingsystem.controller.adapters;
+package com.example.onlinevotingsystem.controller.adapter;
 
 import android.content.Context;
 import android.text.InputType;
@@ -20,19 +20,19 @@ import java.util.Map;
 import java.util.Set;
 
 
-public class StatisticAdapter extends RecyclerView.Adapter<StatisticAdapter.ViewHolder> {
+public class ManagerDashboardAdapter extends RecyclerView.Adapter<ManagerDashboardAdapter.ViewHolder> {
 
     private ArrayList<Topic> dataModalTopic = new ArrayList<>();
 
     // pass in topic variable into StatisticAdapter constructor
-    public StatisticAdapter(ArrayList<Topic> dataModalTopic) {
+    public ManagerDashboardAdapter(ArrayList<Topic> dataModalTopic) {
         this.dataModalTopic = dataModalTopic;
     }
 
     @Override
-    public StatisticAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ManagerDashboardAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        return new StatisticAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_topic_statistics, parent, false));
+        return new ManagerDashboardAdapter.ViewHolder(LayoutInflater.from(context).inflate(R.layout.recycler_dynamic_topic_statistics, parent, false));
     }
 
     @Override

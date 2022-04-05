@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.onlinevotingsystem.R;
 
-public class Settings extends AppCompatActivity {
+public class Setting extends AppCompatActivity {
 
     Boolean darkModeEnabled = false;
 

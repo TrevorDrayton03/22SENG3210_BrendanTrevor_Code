@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/voterDashboardTitle"
         app:layout_constraintVertical_bias="0.506" />
 
     <Button
@@ -27,12 +27,12 @@
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.833"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/voterDashboardTitle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.509" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/voterDashboardTitle"
         android:layout_width="175dp"
         android:layout_height="88dp"
         android:gravity="center_horizontal"

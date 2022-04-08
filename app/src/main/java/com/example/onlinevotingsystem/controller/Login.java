@@ -57,6 +57,10 @@ public class Login extends AppCompatActivity {
                                 int uID = user.getUID();
                                 openManagerDashboard(uID);
                             }
+//                            else{
+//                                Toast.makeText(Login.this,
+//                                        "You are not registered in our system!", Toast.LENGTH_LONG).show();
+//                            }
                         }
                     }
 

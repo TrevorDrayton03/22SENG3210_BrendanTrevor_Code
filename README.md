@@ -8,4 +8,4 @@ The OVS has two types of users that can log in, the "voters" and the "managers".
 
 To login as a manager: try username u1 and password u1.
 
-To login as a voter: try username u2 and password u2 or u3 + p3.
+To login as a voter: try username u2 and password u2, or u3 and p3.

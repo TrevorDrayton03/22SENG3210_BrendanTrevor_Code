@@ -48,15 +48,6 @@ public class ManagerDashboard extends AppCompatActivity {
             }
         });
 
-/*        deleteTopicButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                deleteTopic((Integer) deleteTopicButton.getTag());
-
-            }
-        });*/
-
         // get the uID passing through the login screen intent
         Bundle topicIntent = getIntent().getExtras();
         if (topicIntent != null) {

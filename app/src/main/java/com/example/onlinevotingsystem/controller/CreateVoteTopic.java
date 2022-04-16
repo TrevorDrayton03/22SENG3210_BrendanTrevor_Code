@@ -1,7 +1,5 @@
 package com.example.onlinevotingsystem.controller;
 
-import static com.example.onlinevotingsystem.controller.ManagerDashboard.uID;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -27,6 +25,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
 
 public class CreateVoteTopic extends AppCompatActivity {
     private List<String> optionsList = new ArrayList<String>();
@@ -110,8 +110,11 @@ public class CreateVoteTopic extends AppCompatActivity {
             optionsMap.put(optionsList.get(i), 0);
 
         //Inputting our information into a topic object
-        //TODO: fix the topicID insertion below so that it changes and is always different
-        Topic newTopic = new Topic(topicTitle, 1, simpleDateInput, optionsMap, uID);
+        Random r = new Random();
+        int nextTopicID = r.nextInt(500000000);
+        //TODO: fix the topicID insertion below so that it always unique
+        //TODO: when deleting topics, the last topic does not show as deleted on the front end until going out and in of screen
+        Topic newTopic = new Topic(topicTitle, nextTopicID, simpleDateInput, optionsMap, -1);
 
         databaseReference.child(topicTitle).setValue(newTopic);
         Intent intent = new Intent(this, ManagerDashboard.class);

@@ -23,8 +23,8 @@ public class TopicModelUnitTest {
         optionsMap.put("testOption2", 0);
         optionsMap.put("testOption3", 0);
 
-        Topic testTopic = new Topic(title, topicID, date, optionsMap, 1);
-        Topic testCreateOptionsListTopic = testTopic.createOptionsList(title, topicID, date, optionsMap, 1);
+        Topic testTopic = new Topic(title, topicID, date, optionsMap, -1);
+        Topic testCreateOptionsListTopic = testTopic.createOptionsList(title, topicID, date, optionsMap, -1);
 
         assertEquals(testCreateOptionsListTopic.getOptions(), testTopic.getOptions());
     }

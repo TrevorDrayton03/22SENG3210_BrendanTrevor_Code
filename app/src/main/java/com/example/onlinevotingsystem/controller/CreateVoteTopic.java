@@ -1,5 +1,7 @@
 package com.example.onlinevotingsystem.controller;
 
+import static com.example.onlinevotingsystem.controller.ManagerDashboard.uID;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -53,6 +55,9 @@ public class CreateVoteTopic extends AppCompatActivity {
         //This is for the date picker fragment
         topicEndDate = findViewById(R.id.datePicker);
 
+        /*
+        * This is a date picker Dialog to ensure users can only put in the date in the correct format
+        * */
         topicEndDate.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +111,7 @@ public class CreateVoteTopic extends AppCompatActivity {
 
         //Inputting our information into a topic object
         //TODO: fix the topicID insertion below so that it changes and is always different
-        Topic newTopic = new Topic(topicTitle, 1, simpleDateInput, optionsMap, -1);
+        Topic newTopic = new Topic(topicTitle, 1, simpleDateInput, optionsMap, uID);
 
         databaseReference.child(topicTitle).setValue(newTopic);
         Intent intent = new Intent(this, ManagerDashboard.class);

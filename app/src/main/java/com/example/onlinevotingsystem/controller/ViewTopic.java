@@ -50,7 +50,6 @@ public class ViewTopic extends AppCompatActivity {
         if (topicIntent != null) {
             topicID = topicIntent.getInt("TopicID");
             uID = topicIntent.getInt("uID");
-
         }
 
         //read from the db
